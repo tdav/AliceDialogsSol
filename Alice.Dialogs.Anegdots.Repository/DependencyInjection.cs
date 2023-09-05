@@ -10,4 +10,5 @@ namespace Alice.Dialogs.Anegdots.Repository
             services.AddSingleton<IAnegdotsSerivce, AnegdotsSerivce>();
         }
     }
+
 }
