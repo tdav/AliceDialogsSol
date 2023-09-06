@@ -9,7 +9,7 @@ namespace Alice.Dialogs.Anegdots.Repository.Services
 
     public class AnegdotsSerivce : IAnegdotsSerivce
     {
-        int LEN = 8;
+        int LEN = 10;
         private readonly ILogger<AnegdotsSerivce> logger;
         private readonly string[] list;
 
@@ -32,13 +32,13 @@ namespace Alice.Dialogs.Anegdots.Repository.Services
 
             for (int i = r; i < r + LEN; i++)
             {
-                str += list[i];
+                if (str.Length + list[i].Length < 1020)
+                    str += " sil<[500]> " + list[i];
+                else
+                    break;
             }
 
-            if (str.Length > 1024)
-                return str.Substring(0, 1023);
-            else
-                return str;
+            return str;
         }
     }
 }
